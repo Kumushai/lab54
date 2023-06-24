@@ -4,37 +4,27 @@ from django.http import HttpResponseRedirect, Http404, HttpResponseNotFound
 from webapp.models import Category, Product
 
 
-def articles_list_view(request):
-    pass
-    articles = Article.objects.order_by("-updated_at")
-    context = {"articles": articles}
+def products_list_view(request):
+    products = Product.objects.all()
+    context = {"products": products}
     return render(request, "index.html", context)
 
 
-def article_create_view(request):
-    pass
+def product_create_view(request):
     if request.method == "GET":
-        sections = Section.objects.all()
-        return render(request, "create_article.html", {"sections": sections})
+        categories = Category.objects.all()
+        return render(request, "create_product.html", {"categories": categories})
     else:
-        article = Article.objects.create(
+        product = Product.objects.create(
             title=request.POST.get("title"),
-            content=request.POST.get("content"),
-            author=request.POST.get("author"),
-            section_id=request.POST.get("section_id")
+            description=request.POST.get("description"),
+            category_id=request.POST.get("category_id"),
+            price=request.POST.get("price"),
+            image=request.POST.get("image")
         )
-        return redirect("article_view", pk=article.pk)
-
-        # url = reverse("article_view", kwargs={"pk": article.pk})
-        # return HttpResponseRedirect(url)
+        return redirect("product_view", pk=product.pk)
 
 
-def article_view(request, *args, pk, **kwargs):
-    pass
-    article = get_object_or_404(Article, id=pk)
-    # try:
-    #     article = Article.objects.get(id=pk)
-    # except Article.DoesNotExist:
-    #     return HttpResponseNotFound()
-    #     raise Http404()
-    return render(request, "article.html", {"article": article})
+def product_view(request, *args, pk, **kwargs):
+    product = get_object_or_404(Product, id=pk)
+    return render(request, "product.html", {"product": product})
