@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Создание{% endblock %}
+<h1>Add Category</h1>
+
+{% block content %}
+    <form action="{% url "category_add" %}" method="post">
+        {% csrf_token %}
+        <br/>
+        <input type="text" placeholder="Title" name="title"/><br/>
+        <br/>
+        <textarea placeholder="description" name="description"></textarea><br/>
+        <br/>
+        <br/>
+        <input type="submit" value="Add category"/>
+    </form>
+{% endblock %}
