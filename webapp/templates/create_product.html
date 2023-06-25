@@ -1,26 +1,49 @@
 {% extends "base.html" %}
 
+{% block link %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "products_list" %}">Products</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "product_add" %}">Add product</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "category_add" %}">Add category</a>
+    </li>
+
+{% endblock %}
+
 {% block title %}Создание{% endblock %}
-<h1>Add Product</h1>
+
 
 {% block content %}
+    <h1 style="margin-top: 30px; margin-bottom: 30px">Add Product</h1>
+
     <form action="{% url "product_add" %}" method="post">
         {% csrf_token %}
-        <br/>
-        <input type="text" placeholder="Title" name="title"/><br/>
-        <br/>
-        <input type="number" placeholder="Price" name="price"/><br/>
-        <br/>
-        <input type="text" placeholder="Image url" name="image"/><br/>
-        <br/>
-        <select name="category_id" id="">
+        <div class="mb-3 col-sm-7">
+            <input type="text" placeholder="Title" class="form-control" name="title"/>
+        </div>
+
+        <div class="mb-3 col-sm-7">
+            <input type="number" placeholder="Price" class="form-control" name="price"/>
+        </div>
+        <div class="mb-3 col-sm-7">
+            <input type="text" placeholder="Image url" class="form-control" name="image"/>
+        </div>
+        <div class="mb-3 col-sm-7">
+            <select class="form-select" name="category_id" id="">
             {% for category in categories %}
                 <option value="{{ category.id }}">{{ category.title }}</option>
             {% endfor %}
         </select>
-        <textarea placeholder="description" name="description"></textarea><br/>
-        <br/>
-        <br/>
-        <input type="submit" value="Add product"/>
+        </div>
+        <div class="mb-3 col-sm-7">
+            <textarea class="form-control" placeholder="Description" rows="5" name="description"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add product</button>
+
     </form>
 {% endblock %}

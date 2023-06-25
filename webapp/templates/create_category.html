@@ -1,17 +1,35 @@
 {% extends "base.html" %}
 
+{% block link %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "products_list" %}">Products</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "product_add" %}">Add product</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "category_add" %}">Add category</a>
+    </li>
+
+{% endblock %}
+
 {% block title %}Создание{% endblock %}
-<h1>Add Category</h1>
+
 
 {% block content %}
+    <h1 style="margin-top: 30px; margin-bottom: 30px">Add Category</h1>
+
     <form action="{% url "category_add" %}" method="post">
         {% csrf_token %}
-        <br/>
-        <input type="text" placeholder="Title" name="title"/><br/>
-        <br/>
-        <textarea placeholder="description" name="description"></textarea><br/>
-        <br/>
-        <br/>
-        <input type="submit" value="Add category"/>
+          <div class="mb-3 col-sm-7">
+            <input type="text" class="form-control" placeholder="Title" name="title">
+          </div>
+          <div class="mb-3 col-sm-7">
+            <textarea class="form-control" placeholder="Description" name="description" rows="3"></textarea><br/>
+          </div>
+          <button type="submit" class="btn btn-primary">Add category</button>
     </form>
+
+
 {% endblock %}

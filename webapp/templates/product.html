@@ -1,8 +1,22 @@
 {% extends "base.html" %}
 
+{% block link %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "products_list" %}">Products</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "product_add" %}">Add product</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "category_add" %}">Add category</a>
+    </li>
+
+{% endblock %}
+
 {% block content %}
-    <div class="container">
-        <div><img src="{{ product.image }}" alt=""></div>
+    <div class="container" >
+        <div style="margin-top: 50px; margin-bottom: 30px"><img class="img-fluid" src="{{ product.image }}" alt=""></div>
         <div>
             <h1>{{ product.title }} </h1>
             <h6>{{ product.category.title }} </h6>
