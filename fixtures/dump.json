@@ -1,0 +1,170 @@
+[
+{
+    "model": "webapp.category",
+    "pk": 3,
+    "fields": {
+        "title": "vegetables",
+        "description": ""
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 4,
+    "fields": {
+        "title": "fruits",
+        "description": ""
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 5,
+    "fields": {
+        "title": "dairy",
+        "description": ""
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 6,
+    "fields": {
+        "title": "bakery",
+        "description": ""
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 7,
+    "fields": {
+        "title": "beverage",
+        "description": ""
+    }
+},
+{
+    "model": "webapp.category",
+    "pk": 9,
+    "fields": {
+        "title": "candy",
+        "description": "sweets, cakes"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 5,
+    "fields": {
+        "title": "Bread",
+        "description": "The most durable form of milk is milk powder which is produced from milk by removing almost all water. Наиболее прочной формой молока является сухое молоко, ...",
+        "category": 6,
+        "created_at": "2023-06-24T17:55:24.500Z",
+        "price": "5.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvkc0xC-HbvpgTxfMGkZhOhTs2yR-hITxo8g&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 6,
+    "fields": {
+        "title": "French Baguettes",
+        "description": "The most durable form of milk is milk powder which is produced from milk by removing almost all water. Наиболее прочной формой молока является сухое молоко, ...",
+        "category": 6,
+        "created_at": "2023-06-24T18:05:42.273Z",
+        "price": "7.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKwQRhaUEVnKlyo0hvwuONOJSpv0We1vcrXw&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 7,
+    "fields": {
+        "title": "apples",
+        "description": "The most durable form of milk is milk powder which is produced from milk by removing almost all water. Наиболее прочной формой молока является сухое молоко, ...",
+        "category": 4,
+        "created_at": "2023-06-24T18:07:07.651Z",
+        "price": "3.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBt4v98joO7hKxGUUmuU398on9nVm-rEXLYg&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 8,
+    "fields": {
+        "title": "cherries",
+        "description": "The most durable form of milk is milk powder which is produced from milk by removing almost all water. Наиболее прочной формой молока является сухое молоко, ...",
+        "category": 4,
+        "created_at": "2023-06-24T18:08:44.269Z",
+        "price": "5.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7C7cN3g-qnKmsN10DBItn7RGwaxY25QyB0w&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 9,
+    "fields": {
+        "title": "carrot",
+        "description": "The most durable form of milk is milk powder which is produced from milk by removing almost all water. Наиболее прочной формой молока является сухое молоко, ...",
+        "category": 3,
+        "created_at": "2023-06-24T18:26:05.032Z",
+        "price": "2.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8IDb9slW1pvvCcexbxkrPkvB083BU7zHxjg&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 10,
+    "fields": {
+        "title": "potatoes",
+        "description": "The most durable form of milk is milk powder which is produced from milk by removing almost all water. Наиболее прочной формой молока является сухое молоко, ...",
+        "category": 3,
+        "created_at": "2023-06-24T18:27:19.182Z",
+        "price": "1.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0tZ_emTSOMpNS1hn_WrOdiTAr2klLs4CRmg&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 11,
+    "fields": {
+        "title": "milk",
+        "description": "Milk is a white liquid food produced by the mammary glands of mammals. It is the primary source of nutrition for young mammals (including breastfed human ...",
+        "category": 5,
+        "created_at": "2023-06-24T18:28:22.475Z",
+        "price": "2.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8HZywi6HmxXvnKVHv6RDZLT8uDCtHMLgQpg&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 12,
+    "fields": {
+        "title": "cheese",
+        "description": "Cheese is a dairy product produced in wide ranges of flavors, textures, and forms by coagulation of the milk protein casein.",
+        "category": 5,
+        "created_at": "2023-06-24T18:29:15.128Z",
+        "price": "6.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxzKocK_9am-Itc7XoPqjShi3LnvhRcZXZiQ&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 13,
+    "fields": {
+        "title": "brownie",
+        "description": "cake",
+        "category": 9,
+        "created_at": "2023-06-25T05:31:10.983Z",
+        "price": "5.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8a3FnRbkvX_2Tthvt1XTeabw7jMbPcm9sUA&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 14,
+    "fields": {
+        "title": "chack-chack",
+        "description": "Kyrgyz national sweet",
+        "category": 9,
+        "created_at": "2023-06-25T05:36:42.920Z",
+        "price": "2.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeS3zq8xy6499U2ZcPhMIWgovDu33taL18-Q&usqp=CAU"
+    }
+}
+]
