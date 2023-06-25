@@ -23,7 +23,7 @@
     <form action="{% url "category_add" %}" method="post">
         {% csrf_token %}
           <div class="mb-3 col-sm-7">
-            <input type="text" class="form-control" placeholder="Title" name="title">
+            <input type="text" class="form-control" placeholder="Title" required name="title">
           </div>
           <div class="mb-3 col-sm-7">
             <textarea class="form-control" placeholder="Description" name="description" rows="3"></textarea><br/>

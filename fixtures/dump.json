@@ -48,6 +48,14 @@
     }
 },
 {
+    "model": "webapp.category",
+    "pk": 10,
+    "fields": {
+        "title": "test",
+        "description": ""
+    }
+},
+{
     "model": "webapp.product",
     "pk": 5,
     "fields": {
@@ -165,6 +173,18 @@
         "created_at": "2023-06-25T05:36:42.920Z",
         "price": "2.00",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeS3zq8xy6499U2ZcPhMIWgovDu33taL18-Q&usqp=CAU"
+    }
+},
+{
+    "model": "webapp.product",
+    "pk": 15,
+    "fields": {
+        "title": "Cheese2",
+        "description": "",
+        "category": 3,
+        "created_at": "2023-06-25T16:39:11.973Z",
+        "price": "2.00",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxzKocK_9am-Itc7XoPqjShi3LnvhRcZXZiQ&usqp=CAU"
     }
 }
 ]

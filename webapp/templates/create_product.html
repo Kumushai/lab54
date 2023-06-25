@@ -23,21 +23,21 @@
     <form action="{% url "product_add" %}" method="post">
         {% csrf_token %}
         <div class="mb-3 col-sm-7">
-            <input type="text" placeholder="Title" class="form-control" name="title"/>
+            <input type="text" placeholder="Title" required class="form-control" name="title"/>
         </div>
 
         <div class="mb-3 col-sm-7">
-            <input type="number" placeholder="Price" class="form-control" name="price"/>
+            <input type="number" required placeholder="Price" class="form-control" name="price"/>
         </div>
         <div class="mb-3 col-sm-7">
-            <input type="text" placeholder="Image url" class="form-control" name="image"/>
+            <input type="text" placeholder="Image url" class="form-control" required name="image"/>
         </div>
         <div class="mb-3 col-sm-7">
-            <select class="form-select" name="category_id" id="">
+            <select class="form-select" required name="category_id" id="">
             {% for category in categories %}
                 <option value="{{ category.id }}">{{ category.title }}</option>
             {% endfor %}
-        </select>
+            </select>
         </div>
         <div class="mb-3 col-sm-7">
             <textarea class="form-control" placeholder="Description" rows="5" name="description"></textarea>
