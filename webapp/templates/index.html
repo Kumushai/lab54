@@ -17,6 +17,12 @@
 
 {% block content %}
 
+    <form method="get" action="{% url 'index' %}" style="margin-top: 40px; margin-bottom: 30px">
+        {% csrf_token %}
+        {{ search_form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Найти">
+    </form>
+
     <div style="margin-top: 50px; margin-bottom: 50px" class="row row-cols-1 row-cols-md-3 g-4">
 
         {% for product in products %}
@@ -27,6 +33,7 @@
                     <h5 class="card-title">{{ product.title }}</h5>
                     <p class="card-text">{{ product.category.title }}</p>
                     <h5 class="card-title">Price: {{ product.price }}$</h5>
+                    <h5 class="card-title">Balance: {{ product.balance }}</h5>
                     <a href="{% url "product_view" product.pk %}" class="card-link">see more >>></a>
                   </div>
                 </div>

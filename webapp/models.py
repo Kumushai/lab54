@@ -25,7 +25,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата и время добавления")
     price = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Цена")
     image = models.CharField(max_length=500, verbose_name="Ссылка на картинку")
-    balance = models.IntegerField(validators=[MinValueValidator(0)], verbose_name="Остаток", default=0)
+    balance = models.IntegerField(verbose_name="Остаток", default=0)
 
 
 
