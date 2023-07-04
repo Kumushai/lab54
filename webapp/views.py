@@ -7,11 +7,13 @@ from webapp.models import Category, Product
 def products_list_view(request):
     if request.method == "GET":
         search_form = SearchForm(request.GET)
-        product = Product.objects.filter(balance__gt=0).order_by("category", "title")
+        product = Product.objects.filter(balance__gt=0)
 
         if search_form.is_valid():
             product_title = search_form.cleaned_data["product_title"]
-            product = product.filter(title__icontains=product_title)
+            product = product.filter(title__icontains=product_title).order_by("category__title", "title")
+
+        product = product.order_by("category__title", "title")
         form = ProductForm()
         context = {"products": product, "form": form, "search_form": search_form}
         return render(request, "index.html", context)

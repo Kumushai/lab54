@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block link %}
-
     <li class="nav-item">
         <a class="nav-link" href="{% url "products_list" %}">Products</a>
     </li>
@@ -11,15 +10,16 @@
     <li class="nav-item">
         <a class="nav-link" href="{% url "category_add" %}">Add category</a>
     </li>
-
 {% endblock %}
 
-{% block title %}Создание{% endblock %}
-
-
 {% block content %}
-    <h1 style="margin-top: 30px; margin-bottom: 30px">Add Product</h1>
+    <h3 style="margin-top: 40px">Are you sure you want to delete the product: {{ product.title }}?</h3>
+    <form action="" method="post" style="margin-top: 40px">
+        {% csrf_token %}
 
-    {% include "partial/product_form.html" with button_text="Add product" %}
+        <button type="submit" class="btn btn-primary btn-lg" style="margin-right: 20px">Yes</button>
+        <a class="btn btn-secondary btn-lg" href="{% url "index" %}" role="button">No</a>
+
+    </form>
 
 {% endblock %}

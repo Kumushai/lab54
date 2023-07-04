@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block link %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "products_list" %}">Products</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "product_add" %}">Add product</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url "category_add" %}">Add category</a>
+    </li>
+{% endblock %}
+
+{% block title %}Редактирование{% endblock %}
+<h1>Update the product</h1>
+
+{% block content %}
+    {% include "partial/product_form.html" with button_text="Save" %}
+{% endblock %}

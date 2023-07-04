@@ -35,6 +35,8 @@
                     <h5 class="card-title">Price: {{ product.price }}$</h5>
                     <h5 class="card-title">Balance: {{ product.balance }}</h5>
                     <a href="{% url "product_view" product.pk %}" class="card-link">see more >>></a>
+                    <a href="{% url "product_update_view" product.pk %}" class="card-link">update >>></a>
+                    <a href="{% url "product_delete_view" product.pk %}" class="card-link">delete >>></a>
                   </div>
                 </div>
             </div>
