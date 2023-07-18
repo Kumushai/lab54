@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.utils.http import urlencode
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
 
@@ -42,19 +43,13 @@ class ProductListView(ListView):
         return queryset
 
 
-def product_add_view(request):
-    if request.method == "GET":
-        form = ProductForm()
-        # categories = Category.objects.all()
-        return render(request, "product/create_product.html", {"form": form})
-    else:
-        form = ProductForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("index")
-        else:
-            return render(request, "product/create_product.html", {"form": form})
+class ProductCreateView(CreateView):
+    template_name = 'product/create_product.html'
+    model = Product
+    form_class = ProductForm
 
+    def get_success_url(self):
+        return reverse('product_view', kwargs={'pk': self.object.pk})
 
 def product_view(request, *args, pk, **kwargs):
     product = get_object_or_404(Product, id=pk)
