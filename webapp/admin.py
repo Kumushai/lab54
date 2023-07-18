@@ -1,8 +1,9 @@
 from django.contrib import admin
 
-from webapp.models import Product, Category
+from webapp.models import Product, Category, Order
 
 admin.site.register(Category)
+admin.site.register(Order)
 
 
 class ProductAdmin(admin.ModelAdmin):

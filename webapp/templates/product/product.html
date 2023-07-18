@@ -32,4 +32,14 @@
             <i class="bi bi-file-earmark-x"></i>Delete</a>
 
     </div>
+    <div>
+        {% if product.balance > 0 %}
+        <form method="post" action="{% url 'add_to_cart' product.pk %}" >
+            {% csrf_token %}
+            <button type="submit">Добавить в корзину</button>
+        </form>
+        {% else %}
+        <p>Товара нет в наличии</p>
+        {% endif %}
+    </div>
 {% endblock %}

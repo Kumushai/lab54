@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import widgets
 
-from webapp.models import Product
+from webapp.models import Product, Order
 
 
 # class SearchForm(forms.Form):
@@ -19,4 +19,11 @@ class ProductForm(forms.ModelForm):
         fields = ["title", "price", "balance", "image", "category", "description"]
         widgets = {"description": widgets.Textarea(attrs={"cols": 30, "rows": 5})}
         error_messages = {"title": {"required": "Поле обязательное"}}
+
+
+class OrderForm(forms.ModelForm):
+
+    class Meta:
+        model = Order
+        fields = ['name', 'phone', 'address']
 

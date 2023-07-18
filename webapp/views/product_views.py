@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
@@ -37,7 +37,7 @@ class ProductListView(ListView):
         return context
 
     def get_queryset(self):
-        queryset = Product.objects.filter(balance__gt=0)
+        queryset = Product.objects.filter(balance__gt=0).order_by("category__title", "title")
         if self.search_value:
             queryset = queryset.filter(title__icontains=self.search_value)
         return queryset

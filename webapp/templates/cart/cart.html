@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table>
+    <thead>
+      <tr>
+        <th>Название</th>
+        <th>Цена</th>
+        <th>Количество</th>
+        <th>Сумма</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cart_item, item_total in cart_items_with_total %}
+        <tr>
+          <td>{{ cart_item.product.title }}</td>
+          <td>{{ cart_item.product.price }}</td>
+          <td>{{ cart_item.quantity }}</td>
+          <td>{{ item_total }}</td>
+          <td>
+            <form method="post" action="{% url 'remove_from_cart' cart_item.pk %}">
+              {% csrf_token %}
+              <button type="submit">Удалить</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="3">Итого:</td>
+        <td>{{ total }}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form method="post" action="{% url 'create_order' %}">
+  {% csrf_token %}
+  <label for="name">Имя:</label>
+  <input type="text" name="name" required><br>
+
+  <label for="address">Адрес:</label>
+  <input type="text" name="address" required><br>
+
+  <label for="phone">Телефон:</label>
+  <input type="text" name="phone" required><br>
+
+  <button type="submit">Оформить заказ</button>
+</form>
+{% endblock %}

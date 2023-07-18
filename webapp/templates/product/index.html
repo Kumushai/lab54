@@ -38,6 +38,22 @@
                     <a href="{% url "product_update_view" product.pk %}" class="card-link">update >>></a>
                     <a href="{% url "product_delete_view" product.pk %}" class="card-link">delete >>></a>
                   </div>
+                    <div>
+                        {% if product.balance > 0 %}
+                        <form method="post" action="{% url 'add_to_cart' product.pk %}" >
+                            {% csrf_token %}
+                            <button type="submit">Добавить в корзину</button>
+                        </form>
+                        {% else %}
+                        <p>Товара нет в наличии</p>
+                        {% endif %}
+                    </div>
+
+{#                    <a href="{% url "add_to_cart" product.pk %}" class="card-link">#}
+{#                                <i class="bi bi-cart-plus"></i>add to cart</a>#}
+
+
+
                 </div>
             </div>
 

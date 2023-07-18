@@ -37,3 +37,43 @@ class Product(models.Model):
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
 
+
+class Cart(models.Model):
+    quantity = models.PositiveIntegerField(default=0, verbose_name="Количество")
+    product = models.ForeignKey("webapp.Product",
+                                 on_delete=models.CASCADE,
+                                 verbose_name="Продукт",
+                                 related_name="products")
+
+    def __str__(self):
+        return f"{self.product.title} - {self.quantity}"
+
+    class Meta:
+        db_table = "cart"
+        verbose_name = "Корзина"
+        verbose_name_plural = "Корзина"
+
+
+class Order(models.Model):
+    products = models.ManyToManyField('webapp.Product', through='OrderProduct')
+    name = models.CharField(max_length=100)
+    phone = models.CharField(max_length=20)
+    address = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Order #{self.pk}"
+
+    class Meta:
+        db_table = "orders"
+        verbose_name = "Заказ"
+        verbose_name_plural = "Заказы"
+
+
+class OrderProduct(models.Model):
+    order = models.ForeignKey('webapp.Order', on_delete=models.CASCADE)
+    product = models.ForeignKey('webapp.Product', on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"Order #{self.order.pk}, Product: {self.product.title}"
