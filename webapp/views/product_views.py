@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
 
@@ -51,32 +51,35 @@ class ProductCreateView(CreateView):
     def get_success_url(self):
         return reverse('product_view', kwargs={'pk': self.object.pk})
 
-def product_view(request, *args, pk, **kwargs):
-    product = get_object_or_404(Product, id=pk)
-    return render(request, "product/product.html", {"product": product})
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    template_name = 'product/update_product.html'
+    form_class = ProductForm
+    context_object_name = 'product'
+
+    def get_success_url(self):
+        return reverse('product_view', kwargs={'pk': self.object.pk})
 
 
-def product_update_view(request, pk):
-    product = get_object_or_404(Product, id=pk)
-    if request.method == "GET":
-        form = ProductForm(instance=product)
-        return render(request, "product/update_product.html", {"form": form})
-    else:
-        form = ProductForm(instance=product, data=request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("product_view", pk=product.pk)
-        else:
-            return render(request, "product/update_product.html", {"form": form})
+class ProductDetailView(DetailView):
+    template_name = "product/product.html"
+    model = Product
 
 
-def product_delete_view(request, pk):
-    product = get_object_or_404(Product, id=pk)
-    if request.method == "GET":
-        return render(request, "product/delete_product.html", {"product": product})
-    else:
-        product.delete()
-        return redirect("index")
+class ProductDeleteView(DeleteView):
+    template_name = 'product/delete_product.html'
+    model = Product
+    context_object_name = 'product'
+    success_url = reverse_lazy('index')
+
+# def product_delete_view(request, pk):
+#     product = get_object_or_404(Product, id=pk)
+#     if request.method == "GET":
+#         return render(request, "product/delete_product.html", {"product": product})
+#     else:
+#         product.delete()
+#         return redirect("index")
 
 
 def category_add_view(request):
