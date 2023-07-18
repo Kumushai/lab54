@@ -4,8 +4,11 @@ from django.forms import widgets
 from webapp.models import Product
 
 
+# class SearchForm(forms.Form):
+#     product_title = forms.CharField(label="Название товара", required=False)
+
 class SearchForm(forms.Form):
-    product_title = forms.CharField(label="Название товара", required=False)
+    search = forms.CharField(max_length=100, required=False, label='Найти')
 
 
 class ProductForm(forms.ModelForm):
